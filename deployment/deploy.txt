@@ -1,0 +1,7 @@
+az group create --location francecentral --name stefanc-shipit-aalst
+
+az appservice plan create --name stefanc-shipit-aalst-plan --resource-group stefanc-shipit-aalst --sku F1 --is-linux true
+
+az webapp create --name stefanc-shipit-aalst-quote --plan stefanc-shipit-aalst-plan --resource-group stefanc-shipit-aalst --runtime "DOTNETCORE|10.0"
+
+az webapp deploy --name stefanc-shipit-aalst-quote --resource-group stefanc-shipit-aalst --src-path ./deployme.zip --type zip

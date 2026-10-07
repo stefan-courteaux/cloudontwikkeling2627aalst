@@ -1,0 +1,69 @@
+{
+  "info": {
+    "_postman_id": "50acfabc-8f3f-42bd-9610-2b564335cc3e",
+    "name": "2026-2027-cloud-aalst",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "33190066"
+  },
+  "item": [
+    {
+      "name": "Create Quote",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"WidthCm\" : 40,\n    \"WeightG\" : 24000,\n    \"LengthCm\" : 30,\n    \"HeightCm\" : 50,\n    \"FromCountry\" : \"NL\",\n    \"ToCountry\" : \"BE\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5123/api/pricequotes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5123",
+          "path": [
+            "api",
+            "pricequotes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Quote Azure",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"WidthCm\" : 40,\n    \"WeightG\" : 9000,\n    \"LengthCm\" : 30,\n    \"HeightCm\" : 50,\n    \"FromCountry\" : \"NL\",\n    \"ToCountry\" : \"BE\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://stefanc-shipit-aalst-quote.azurewebsites.net/api/pricequotes",
+          "protocol": "https",
+          "host": [
+            "stefanc-shipit-aalst-quote",
+            "azurewebsites",
+            "net"
+          ],
+          "path": [
+            "api",
+            "pricequotes"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
