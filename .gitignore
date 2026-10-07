@@ -1,0 +1,5 @@
+**/obj
+**/bin
+**/*.Development.json
+**/publish
+**/.DS_Store
