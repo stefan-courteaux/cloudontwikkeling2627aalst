@@ -10,11 +10,12 @@ namespace ShipIt.PriceQuotes.Api.Controllers
     public class PriceQuotesController(IPriceQuoteService service) : ControllerBase
     {
         [HttpPost]
-        public ActionResult<PriceQuoteResponseContract> CalculatePrice(
+        public async Task<ActionResult<PriceQuoteResponseContract>> CalculatePrice(
             [FromBody]PriceQuoteRequestContract requestContract)
         {
             try{
-                return Ok(service.CreateQuote(requestContract));
+                var created = await service.CreateQuote(requestContract);
+                return CreatedAtAction(nameof(Get), new { id = created.Id}, created);
             }
             catch(FromCountryWeightExceededException e)
             {
@@ -25,5 +26,13 @@ namespace ShipIt.PriceQuotes.Api.Controllers
                 );
             }
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PriceQuoteResponseContract>> Get(
+            [FromRoute] string id)
+        {
+            var quote = await service.GetById(id);
+            return quote;
+        }        
     }
 }
