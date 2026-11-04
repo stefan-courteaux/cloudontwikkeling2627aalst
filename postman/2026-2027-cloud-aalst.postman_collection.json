@@ -13,7 +13,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"WidthCm\" : 40,\n    \"WeightG\" : 24000,\n    \"LengthCm\" : 30,\n    \"HeightCm\" : 50,\n    \"FromCountry\" : \"NL\",\n    \"ToCountry\" : \"BE\"\n}",
+          "raw": "{\n    \"WidthCm\" : 40,\n    \"WeightG\" : 999,\n    \"LengthCm\" : 30,\n    \"HeightCm\" : 50,\n    \"FromCountry\" : \"NL\",\n    \"ToCountry\" : \"BE\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -42,7 +42,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"WidthCm\" : 40,\n    \"WeightG\" : 9000,\n    \"LengthCm\" : 30,\n    \"HeightCm\" : 50,\n    \"FromCountry\" : \"NL\",\n    \"ToCountry\" : \"BE\"\n}",
+          "raw": "{\n    \"WidthCm\" : 44,\n    \"WeightG\" : 888,\n    \"LengthCm\" : 33,\n    \"HeightCm\" : 55,\n    \"FromCountry\" : \"NL\",\n    \"ToCountry\" : \"BE\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -60,6 +60,104 @@
           "path": [
             "api",
             "pricequotes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Label",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"QuoteId\" : \"9c38252f-eefe-4818-99e0-4f42b9550b61\",\n    \"RecipientName\" : \"Jeffina\",\n    \"RecipientAddressLine1\" : \"kerkstraat\",\n    \"RecipientAddressLine2\" : \"9300 Aalst\",\n    \"RecipientCountry\" : \"BE\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5238/api/labels",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5238",
+          "path": [
+            "api",
+            "labels"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Quote",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5123/api/PriceQuotes/9c38252f-eefe-4818-99e0-4f42b9550b61",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5123",
+          "path": [
+            "api",
+            "PriceQuotes",
+            "9c38252f-eefe-4818-99e0-4f42b9550b61"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Quote Azure",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://stefanc-shipit-aalst-quote.azurewebsites.net/api/PriceQuotes/9c38252f-eefe-4818-99e0-4f42b9550b61",
+          "protocol": "https",
+          "host": [
+            "stefanc-shipit-aalst-quote",
+            "azurewebsites",
+            "net"
+          ],
+          "path": [
+            "api",
+            "PriceQuotes",
+            "9c38252f-eefe-4818-99e0-4f42b9550b61"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Label",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/pdf"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5238/api/labels/a316ae00-c85e-4398-96dc-ed8f6a7f582f",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5238",
+          "path": [
+            "api",
+            "labels",
+            "a316ae00-c85e-4398-96dc-ed8f6a7f582f"
           ]
         }
       },
