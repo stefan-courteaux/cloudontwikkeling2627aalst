@@ -1,5 +1,7 @@
 
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using ShipIt.PirceQuotes.Domain.Services;
 using ShipIt.PriceQuotes.Api.Contracts;
 
@@ -10,6 +12,9 @@ namespace ShipIt.PriceQuotes.Api.Controllers
     public class PriceQuotesController(IPriceQuoteService service) : ControllerBase
     {
         [HttpPost]
+        [EnableRateLimiting("quote-creation-limiter")]
+        [ProducesResponseType(typeof(PriceQuoteResponseContract), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<PriceQuoteResponseContract>> CalculatePrice(
             [FromBody]PriceQuoteRequestContract requestContract)
         {
@@ -28,6 +33,7 @@ namespace ShipIt.PriceQuotes.Api.Controllers
         }
 
         [HttpGet("{id}")]
+        [EnableRateLimiting("andere-rate-limiter")]
         public async Task<ActionResult<PriceQuoteResponseContract>> Get(
             [FromRoute] string id)
         {

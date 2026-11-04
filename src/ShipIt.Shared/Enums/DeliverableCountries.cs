@@ -1,4 +1,6 @@
-﻿namespace ShipIt.Shared.Enums;
+﻿using System.Text.Json.Serialization;
+
+namespace ShipIt.Shared.Enums;
 
 public enum DeliverableCountries
 {
